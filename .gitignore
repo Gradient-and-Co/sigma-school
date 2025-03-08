@@ -1,0 +1,8 @@
+.data
+.bin
+.idea/
+.DS_Store
+**/.DS_Store
+.env
+logs
+**/*.log

@@ -1,0 +1,54 @@
+package server
+
+import (
+	"context"
+	"fmt"
+	"github.com/Gradient-and-Co/sigma-school/internal/app/config"
+	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"go.uber.org/fx"
+	"go.uber.org/zap"
+	"net/http"
+	"time"
+)
+
+func NewGinRouter() *gin.Engine {
+	gin.SetMode(gin.ReleaseMode)
+	router := gin.Default()
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	router.GET("/ping", func(c *gin.Context) {
+		c.String(http.StatusOK, "pong")
+	})
+
+	return router
+}
+
+type Params struct {
+	fx.In
+	Cfg    *config.Config
+	Router *gin.Engine
+	Logger *zap.Logger
+}
+
+func NewServer(lc fx.Lifecycle, params Params) *http.Server {
+	server := &http.Server{
+		Handler:      params.Router,
+		Addr:         fmt.Sprintf(":%s", params.Cfg.Web.Port),
+		ReadTimeout:  30 * time.Second,
+		WriteTimeout: 30 * time.Second,
+	}
+	lc.Append(fx.Hook{
+		OnStart: func(ctx context.Context) error {
+			go func() {
+				params.Logger.Info(fmt.Sprintf("server started on port %s", params.Cfg.Web.Port))
+				params.Logger.Fatal("server shutdown", zap.Error(server.ListenAndServe()))
+			}()
+			return nil
+		},
+		OnStop: func(ctx context.Context) error {
+			return nil
+		},
+	})
+	return server
+}
