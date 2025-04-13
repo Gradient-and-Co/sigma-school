@@ -3,6 +3,8 @@ package port
 import (
 	"context"
 	"github.com/Gradient-and-Co/sigma-school/internal/core/domain"
+	"io"
+	"net/url"
 )
 
 type IUserService interface {
@@ -81,4 +83,25 @@ type IReviewService interface {
 	CreateCourseReview(ctx context.Context, courseID, userID domain.ID,
 		param CreateReviewParam) (domain.Review, error)
 	Delete(ctx context.Context, reviewID domain.ID) error
+}
+
+type IPaymentService interface {
+	GetCoursePaymentUrl(ctx context.Context, userID, courseID domain.ID) (url.URL, error)
+	ProcessCoursePayment(ctx context.Context, label string, paid int64) (domain.PaymentPayload, error)
+}
+
+type IMediaService interface {
+	SaveMediaFile(ctx context.Context, file domain.File) (domain.Url, error)
+	SaveUserAvatar(ctx context.Context, userID domain.ID, file domain.File) (domain.Url, error)
+	SaveLessonTheory(ctx context.Context, lessonID domain.ID, reader io.Reader) (domain.Url, error)
+	SaveTestQuestion(ctx context.Context, testID domain.ID, reader io.Reader) (domain.Url, error)
+}
+
+type IAuthTokenService interface {
+	SignIn(ctx context.Context, param SignInParam) (domain.AuthDetails, error)
+	SignUp(ctx context.Context, param SignUpParam) error
+	LogOut(ctx context.Context, refreshToken domain.Token) error
+	Refresh(ctx context.Context, refreshToken domain.Token, fingerprint string) (domain.AuthDetails, error)
+	Verify(ctx context.Context, accessToken domain.Token) error
+	Payload(ctx context.Context, accessToken domain.Token) (domain.AuthPayload, error)
 }
