@@ -60,3 +60,12 @@ type IStatRepository interface {
 	CreateLessonStat(ctx context.Context, stat domain.LessonStat) error
 	UpdateLessonStat(ctx context.Context, stat domain.LessonStat) error
 }
+
+type IReviewRepository interface {
+	FindAll(ctx context.Context) ([]domain.Review, error)
+	FindByID(ctx context.Context, reviewID domain.ID) (domain.Review, error)
+	FindUserReviews(ctx context.Context, userID domain.ID) ([]domain.Review, error)
+	FindCourseReviews(ctx context.Context, courseID domain.ID) ([]domain.Review, error)
+	Create(ctx context.Context, review domain.Review) (domain.Review, error)
+	Delete(ctx context.Context, reviewID domain.ID) error
+}

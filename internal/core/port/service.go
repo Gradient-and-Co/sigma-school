@@ -59,3 +59,26 @@ type IStatService interface {
 	UpdateLessonStat(ctx context.Context, userID, lessonID domain.ID,
 		param UpdateLessonStatParam) error
 }
+
+type ISchoolService interface {
+	FindAll(ctx context.Context) ([]domain.School, error)
+	FindByID(ctx context.Context, schoolID domain.ID) (domain.School, error)
+	FindUserSchools(ctx context.Context, userID domain.ID) ([]domain.School, error)
+	FindSchoolCourses(ctx context.Context, schoolID domain.ID) ([]domain.Course, error)
+	FindSchoolTeachers(ctx context.Context, schoolID domain.ID) ([]domain.User, error)
+	IsSchoolTeacher(ctx context.Context, schoolID, teacherID domain.ID) (bool, error)
+	AddSchoolTeacher(ctx context.Context, schoolID, teacherID domain.ID) error
+	CreateUserSchool(ctx context.Context, userID domain.ID, param CreateSchoolParam) (domain.School, error)
+	Update(ctx context.Context, schoolID domain.ID, param UpdateSchoolParam) (domain.School, error)
+	Delete(ctx context.Context, schoolID domain.ID) error
+}
+
+type IReviewService interface {
+	FindAll(ctx context.Context) ([]domain.Review, error)
+	FindByID(ctx context.Context, reviewID domain.ID) (domain.Review, error)
+	FindUserReviews(ctx context.Context, userID domain.ID) ([]domain.Review, error)
+	FindCourseReviews(ctx context.Context, courseID domain.ID) ([]domain.Review, error)
+	CreateCourseReview(ctx context.Context, courseID, userID domain.ID,
+		param CreateReviewParam) (domain.Review, error)
+	Delete(ctx context.Context, reviewID domain.ID) error
+}
