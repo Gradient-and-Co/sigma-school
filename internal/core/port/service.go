@@ -33,3 +33,29 @@ type ICourseService interface {
 		param UpdateCourseParam) (domain.Course, error)
 	Delete(ctx context.Context, courseID domain.ID) error
 }
+
+type ILessonService interface {
+	FindAll(ctx context.Context) ([]domain.Lesson, error)
+	FindByID(ctx context.Context, lessonID domain.ID) (domain.Lesson, error)
+	FindCourseLessons(ctx context.Context, courseID domain.ID) ([]domain.Lesson, error)
+	CreateTheoryLesson(ctx context.Context, courseID domain.ID,
+		param CreateTheoryParam) (domain.Lesson, error)
+	CreateVideoLesson(ctx context.Context, courseID domain.ID,
+		param CreateVideoParam) (domain.Lesson, error)
+	CreatePracticeLesson(ctx context.Context, courseID domain.ID,
+		param CreatePracticeParam) (domain.Lesson, error)
+	UpdateTheoryLesson(ctx context.Context, lessonID domain.ID,
+		param UpdateTheoryParam) (domain.Lesson, error)
+	UpdateVideoLesson(ctx context.Context, lessonID domain.ID,
+		param UpdateVideoParam) (domain.Lesson, error)
+	UpdatePracticeLesson(ctx context.Context, lessonID domain.ID,
+		param UpdatePracticeParam) (domain.Lesson, error)
+	Delete(ctx context.Context, lessonID domain.ID) error
+}
+
+type IStatService interface {
+	FindLessonStat(ctx context.Context, userID, lessonID domain.ID) (domain.LessonStat, error)
+	CreateLessonStat(ctx context.Context, userID, lessonID domain.ID) error
+	UpdateLessonStat(ctx context.Context, userID, lessonID domain.ID,
+		param UpdateLessonStatParam) error
+}
