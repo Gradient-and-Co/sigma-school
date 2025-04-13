@@ -3,6 +3,7 @@ package integration
 import (
 	"context"
 	"fmt"
+	storage "github.com/Gradient-and-Co/sigma-school/internal/adapter/storage/minio"
 	"github.com/golang-migrate/migrate"
 	migratepg "github.com/golang-migrate/migrate/database/postgres"
 	_ "github.com/golang-migrate/migrate/source/file"

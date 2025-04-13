@@ -31,8 +31,9 @@ test:
 	rm -rf allure-results
 	go test -shuffle on \
 		./internal/core/service/test/unit \
+		./internal/core/service/test/integration \
 		./internal/adapter/repository/postgres/test \
-		--parallel 8
+		--parallel 8 -v
 
 allure:
 	rm -rf allure-reports
