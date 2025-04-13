@@ -3,6 +3,7 @@ package integration
 import (
 	"context"
 	repository "github.com/Gradient-and-Co/sigma-school/internal/adapter/repository/postgres"
+	storage "github.com/Gradient-and-Co/sigma-school/internal/adapter/storage/minio"
 	"github.com/Gradient-and-Co/sigma-school/internal/core/domain"
 	"github.com/Gradient-and-Co/sigma-school/internal/core/port"
 	"github.com/Gradient-and-Co/sigma-school/internal/core/service"
