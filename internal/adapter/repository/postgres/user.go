@@ -6,6 +6,7 @@ import (
 	"github.com/Gradient-and-Co/sigma-school/internal/adapter/repository/postgres/entity"
 	"github.com/Gradient-and-Co/sigma-school/internal/core/domain"
 	"github.com/Gradient-and-Co/sigma-school/internal/core/errs"
+	"github.com/Gradient-and-Co/sigma-school/internal/core/port"
 	"github.com/jackc/pgconn"
 	"github.com/jmoiron/sqlx"
 	"github.com/pkg/errors"

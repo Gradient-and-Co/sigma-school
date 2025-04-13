@@ -8,6 +8,7 @@ import (
 	"github.com/Gradient-and-Co/sigma-school/internal/adapter/repository/postgres/entity"
 	"github.com/Gradient-and-Co/sigma-school/internal/core/domain"
 	"github.com/Gradient-and-Co/sigma-school/internal/core/errs"
+	"github.com/Gradient-and-Co/sigma-school/internal/core/port"
 	"github.com/jmoiron/sqlx"
 	"github.com/ozontech/allure-go/pkg/framework/provider"
 	"github.com/ozontech/allure-go/pkg/framework/suite"
