@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: bitnami/postgresql
+    container_name: postgres
+    volumes:
+      - ./.data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d postgres -U user" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    logging:
+      driver: none
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRESQL_REPLICATION_MODE: master
+      POSTGRESQL_REPLICATION_USER: repliaction_user
+      POSTGRESQL_REPLICATION_PASSWORD: repliaction_password
+      POSTGRESQL_USERNAME: user
+      POSTGRESQL_PASSWORD: password
+      POSTGRESQL_DATABASE: sigma-school
+      POSTGRESQL_PORT: 5432
+      TZ: "Europe/Moscow"
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+  migrate:
+    image: migrate/migrate
+    container_name: 'migrate'
+    volumes:
+      - ./migrations:/migrations
+    command: ["-path", "/migrations", "-database",
+              "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable",
+              "up", "3"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - backend
+networks:
+  backend:
+    name: "backend"
+    driver: bridge
