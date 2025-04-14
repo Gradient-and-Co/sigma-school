@@ -11,8 +11,7 @@ const docTemplate = `{
         "title": "{{.Title}}",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
-            "name": "API Support",
-            "email": "shpakovskiipa@gmail.com"
+            "name": "API Support"
         },
         "license": {
             "name": "Apache 2.0",
@@ -78,7 +77,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.RefreshDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.RefreshDTO"
                         }
                     }
                 ],
@@ -130,7 +129,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SignInDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SignInDTO"
                         }
                     }
                 ],
@@ -182,7 +181,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SignUpDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SignUpDTO"
                         }
                     }
                 ],
@@ -233,7 +232,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseDTO"
                             }
                         }
                     },
@@ -286,7 +285,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonDTO"
                             }
                         }
                     },
@@ -426,7 +425,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateLessonDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateLessonDTO"
                         }
                     }
                 ],
@@ -434,7 +433,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonDTO"
                         }
                     },
                     "400": {
@@ -508,7 +507,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonStatDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonStatDTO"
                         }
                     },
                     "400": {
@@ -581,7 +580,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.PassLessonDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.PassLessonDTO"
                         }
                     }
                 ],
@@ -589,7 +588,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonStatDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonStatDTO"
                         }
                     },
                     "400": {
@@ -727,7 +726,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseDTO"
                             }
                         }
                     },
@@ -785,7 +784,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseBriefDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseBriefDTO"
                             }
                         }
                     },
@@ -843,7 +842,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonDTO"
                             }
                         }
                     },
@@ -910,7 +909,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateLessonDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateLessonDTO"
                         }
                     }
                 ],
@@ -918,7 +917,7 @@ const docTemplate = `{
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonDTO"
                         }
                     },
                     "400": {
@@ -982,7 +981,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserDTO"
                             }
                         }
                     },
@@ -1082,7 +1081,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SchoolDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SchoolDTO"
                             }
                         }
                     },
@@ -1118,7 +1117,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateSchoolDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateSchoolDTO"
                         }
                     }
                 ],
@@ -1126,7 +1125,7 @@ const docTemplate = `{
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SchoolDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SchoolDTO"
                         }
                     },
                     "400": {
@@ -1178,7 +1177,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SchoolDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SchoolDTO"
                             }
                         }
                     },
@@ -1233,7 +1232,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateSchoolDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateSchoolDTO"
                         }
                     }
                 ],
@@ -1241,7 +1240,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SchoolDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SchoolDTO"
                         }
                     },
                     "400": {
@@ -1305,7 +1304,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseDTO"
                             }
                         }
                     },
@@ -1360,7 +1359,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateCourseDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateCourseDTO"
                         }
                     }
                 ],
@@ -1370,7 +1369,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseDTO"
                             }
                         }
                     },
@@ -1435,7 +1434,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserDTO"
                             }
                         }
                     },
@@ -1638,7 +1637,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateCourseDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateCourseDTO"
                         }
                     }
                 ],
@@ -1646,7 +1645,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseDTO"
                         }
                     },
                     "400": {
@@ -1775,7 +1774,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserDTO"
                             }
                         }
                     },
@@ -1812,7 +1811,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserInfoDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserInfoDTO"
                             }
                         }
                     },
@@ -1854,7 +1853,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateUserDTO"
+                            "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateUserDTO"
                         }
                     }
                 ],
@@ -1864,7 +1863,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserDTO"
                             }
                         }
                     },
@@ -1913,7 +1912,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseDTO"
                             }
                         }
                     },
@@ -2017,7 +2016,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SchoolDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SchoolDTO"
                             }
                         }
                     },
@@ -2070,7 +2069,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserDTO"
+                                "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserDTO"
                             }
                         }
                     },
@@ -2097,7 +2096,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseBriefDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseBriefDTO": {
             "type": "object",
             "properties": {
                 "description": {
@@ -2119,7 +2118,7 @@ const docTemplate = `{
                 "lessons": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonBriefDTO"
+                        "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonBriefDTO"
                     }
                 },
                 "name": {
@@ -2132,7 +2131,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseDTO": {
             "type": "object",
             "properties": {
                 "description": {
@@ -2173,7 +2172,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateCourseDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateCourseDTO": {
             "type": "object",
             "required": [
                 "description",
@@ -2209,10 +2208,10 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateLessonDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateLessonDTO": {
             "type": "object"
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateSchoolDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateSchoolDTO": {
             "type": "object",
             "required": [
                 "description",
@@ -2228,7 +2227,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonBriefDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonBriefDTO": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2242,7 +2241,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonDTO": {
             "type": "object",
             "properties": {
                 "course_id": {
@@ -2257,7 +2256,7 @@ const docTemplate = `{
                 "tests": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.TestDTO"
+                        "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.TestDTO"
                     }
                 },
                 "theory_url": {
@@ -2274,7 +2273,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonStatDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonStatDTO": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2289,7 +2288,7 @@ const docTemplate = `{
                 "tests": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.TestStatDTO"
+                        "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.TestStatDTO"
                     }
                 },
                 "user_id": {
@@ -2297,18 +2296,18 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.PassLessonDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.PassLessonDTO": {
             "type": "object",
             "properties": {
                 "tests": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.PassTestDTO"
+                        "$ref": "#/definitions/github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.PassTestDTO"
                     }
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.PassTestDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.PassTestDTO": {
             "type": "object",
             "required": [
                 "answer",
@@ -2323,7 +2322,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.RefreshDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.RefreshDTO": {
             "type": "object",
             "required": [
                 "fingerprint"
@@ -2335,7 +2334,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SchoolDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SchoolDTO": {
             "type": "object",
             "properties": {
                 "description": {
@@ -2356,7 +2355,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SignInDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SignInDTO": {
             "type": "object",
             "required": [
                 "email",
@@ -2378,7 +2377,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SignUpDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SignUpDTO": {
             "type": "object",
             "required": [
                 "email",
@@ -2417,7 +2416,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.TestDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.TestDTO": {
             "type": "object",
             "properties": {
                 "answer": {
@@ -2446,7 +2445,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.TestStatDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.TestStatDTO": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2463,7 +2462,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateCourseDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateCourseDTO": {
             "type": "object",
             "properties": {
                 "description": {
@@ -2492,10 +2491,10 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateLessonDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateLessonDTO": {
             "type": "object"
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateSchoolDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateSchoolDTO": {
             "type": "object",
             "properties": {
                 "description": {
@@ -2504,7 +2503,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateUserDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateUserDTO": {
             "type": "object",
             "properties": {
                 "avatar_url": {
@@ -2529,7 +2528,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserDTO": {
             "type": "object",
             "properties": {
                 "avatar_url": {
@@ -2562,7 +2561,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserInfoDTO": {
+        "github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserInfoDTO": {
             "type": "object",
             "properties": {
                 "name": {
@@ -2697,8 +2696,8 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:80",
 	BasePath:         "/api/v1",
 	Schemes:          []string{},
-	Title:            "Eschool API",
-	Description:      "This is a Eschool API.",
+	Title:            "Sigma School API",
+	Description:      "This is a Sigma School API.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

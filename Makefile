@@ -5,21 +5,10 @@ build: swagger
 	go mod download && CGO_ENABLED=0 GOOS=linux go build -gcflags="all=-N -l" -o ./.bin/app ./cmd/web/main.go
 
 run: build
-	docker-compose up postgres redis minio pgadmin proxy app
+	docker-compose up postgres redis minio proxy app
 
 debug: build
-	docker-compose up postgres redis minio pgadmin debug
-
-console: run_console
-
-build_console:
-	go mod download && CGO_ENABLED=0 GOOS=linux go build -gcflags="all=-N -l" -o ./.bin/app ./cmd/console/main.go
-
-run_console: build_console
-	docker-compose up postgres redis minio pgadmin app
-
-debug_console: build_console
-	docker-compose up postgres redis minio pgadmin debug
+	docker-compose up postgres redis minio debug
 
 migrate:
 	# if "error: file does not exist" was occurred,
@@ -54,21 +43,10 @@ test:
 	go test -shuffle on \
 		./internal/core/service/test/unit \
 		./internal/core/service/test/integration \
-		./internal/core/service/test/e2e \
 		./internal/adapter/repository/postgres/test --parallel 8
-
-allure:
-	rm -rf allure-reports
-	allure generate allure-results -o allure-reports
-	allure serve allure-results -p 4000
-
-report: test allure
 
 swagger:
 	swag init --parseDependency --parseInternal --parseDepth 1 -g ./cmd/web/main.go
 	swagger2openapi docs/swagger.yaml -o docs/openapi3.yaml
-
-pandora:
-	cd bench && ./run-line.sh
 
 .DEFAULT_GOAL := run

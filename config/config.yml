@@ -1,6 +1,13 @@
+jwt:
+  accessTokenTime: 60 # minutes
+  refreshTokenTime: 86400 # minutes, (86400 == 60 days)
 web:
   host: localhost
   port: 8080
+yoomoney:
+  scheme: https
+  host: yoomoney.ru
+  path: /quickpay/confirm
 logging:
   path: logs
   filename: logs.json
