@@ -42,6 +42,105 @@ services:
         condition: service_healthy
     networks:
       - backend
+
+  redis:
+    image: redis
+    container_name: 'redis'
+    command: redis-server --save 60 1 --loglevel warning
+    logging:
+      driver: none
+    volumes:
+      - ./.data/redis:/var/lib/redis
+      - ./.data/redis-config:/usr/local/etc/storage/redis.conf
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+
+  minio:
+    image: minio/minio
+    container_name: 'minio'
+    command: minio server /data --console-address :9001
+    logging:
+      driver: none
+    volumes:
+      - ./.data/minio:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    env_file:
+      - .env
+    networks:
+      - backend
+
+  app:
+    image: 'app'
+    container_name: 'app'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./.bin/:/app/
+      - ./config/:/app/config/
+      - ./logs/:/app/logs
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      minio:
+        condition: service_started
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+  proxy:
+    image: nginx
+    container_name: 'proxy'
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/static/dist:/static/dist
+      - ./docs:/static/docs
+      - ./README.md:/static/README.md
+      - ./nginx/static/index.html:/static/index.html
+      - ./nginx/static/md-renderer.html:/static/md-renderer.html
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - backend
+    depends_on:
+      - app
+
+  debug:
+    image: 'debug'
+    container_name: 'debug'
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+    volumes:
+      - ./.bin/:/app/
+      - ./config/:/app/config/
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    ports:
+      - "8080:8080"
+      - "40000:40000"
+    security_opt:
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
+    networks:
+      - backend
+
 networks:
   backend:
     name: "backend"

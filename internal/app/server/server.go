@@ -3,6 +3,7 @@ package server
 import (
 	"context"
 	"fmt"
+	v1 "github.com/Gradient-and-Co/sigma-school/internal/adapter/delivery/http/v1"
 	"github.com/Gradient-and-Co/sigma-school/internal/app/config"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
@@ -24,14 +25,15 @@ func NewGinRouter() *gin.Engine {
 	return router
 }
 
-type Params struct {
+type ServerParams struct {
 	fx.In
-	Cfg    *config.Config
-	Router *gin.Engine
-	Logger *zap.Logger
+	Cfg     *config.Config
+	Handler *v1.Handler
+	Router  *gin.Engine
+	Logger  *zap.Logger
 }
 
-func NewServer(lc fx.Lifecycle, params Params) *http.Server {
+func NewServer(lc fx.Lifecycle, params ServerParams) *http.Server {
 	server := &http.Server{
 		Handler:      params.Router,
 		Addr:         fmt.Sprintf(":%s", params.Cfg.Web.Port),
