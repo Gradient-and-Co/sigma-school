@@ -1,10 +1,10 @@
 package jwt
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"github.com/paw1a/eschool/internal/adapter/auth/port"
-	"github.com/paw1a/eschool/internal/core/domain"
-	"github.com/paw1a/eschool/internal/core/errs"
+	"github.com/Gradient-and-Co/sigma-school/internal/adapter/auth/port"
+	"github.com/Gradient-and-Co/sigma-school/internal/core/domain"
+	"github.com/Gradient-and-Co/sigma-school/internal/core/errs"
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/pkg/errors"
 	"github.com/twinj/uuid"
 	"time"
