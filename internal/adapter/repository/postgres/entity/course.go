@@ -1,0 +1,74 @@
+package entity
+
+import (
+	"github.com/Gradient-and-Co/sigma-school/internal/core/domain"
+	"github.com/google/uuid"
+)
+
+const (
+	PgCourseDraft     = "draft"
+	PgCourseReady     = "ready"
+	PgCoursePublished = "published"
+)
+
+type PgCourse struct {
+	ID          uuid.UUID `db:"id"`
+	SchoolID    uuid.UUID `db:"school_id"`
+	Name        string    `db:"name"`
+	Description string    `db:"description"`
+	Level       int       `db:"level"`
+	Price       int64     `db:"price"`
+	Language    string    `db:"language"`
+	ImageUrl    string    `db:"image_url"`
+	Status      string    `db:"status"`
+}
+
+func (s *PgCourse) ToDomain() domain.Course {
+	var status domain.CourseStatus
+	switch s.Status {
+	case PgCourseDraft:
+		status = domain.CourseDraft
+	case PgCourseReady:
+		status = domain.CourseReady
+	case PgCoursePublished:
+		status = domain.CoursePublished
+	}
+
+	return domain.Course{
+		ID:          domain.ID(s.ID.String()),
+		SchoolID:    domain.ID(s.SchoolID.String()),
+		Name:        s.Name,
+		Description: s.Description,
+		Level:       s.Level,
+		Price:       s.Price,
+		Language:    s.Language,
+		ImageUrl:    s.ImageUrl,
+		Status:      status,
+	}
+}
+
+func NewPgCourse(course domain.Course) PgCourse {
+	id, _ := uuid.Parse(course.ID.String())
+	schoolID, _ := uuid.Parse(course.SchoolID.String())
+	var status string
+	switch course.Status {
+	case domain.CourseDraft:
+		status = PgCourseDraft
+	case domain.CourseReady:
+		status = PgCourseReady
+	case domain.CoursePublished:
+		status = PgCoursePublished
+	}
+
+	return PgCourse{
+		ID:          id,
+		SchoolID:    schoolID,
+		Name:        course.Name,
+		Description: course.Description,
+		Level:       course.Level,
+		Price:       course.Price,
+		Language:    course.Language,
+		ImageUrl:    course.ImageUrl,
+		Status:      status,
+	}
+}
