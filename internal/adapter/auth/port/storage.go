@@ -1,7 +1,7 @@
 package port
 
 import (
-	"github.com/paw1a/eschool/internal/core/domain"
+	"github.com/Gradient-and-Co/sigma-school/internal/core/domain"
 	"time"
 )
 
