@@ -4,14 +4,13 @@ externalDocs:
   url: https://swagger.io/resources/open-api/
 info:
   contact:
-    email: shpakovskiipa@gmail.com
     name: API Support
-  description: This is a Eschool API.
+  description: This is a Sigma School API.
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: http://swagger.io/terms/
-  title: Eschool API
+  title: Sigma School API
   version: "1.0"
 paths:
   /auth/logout:
@@ -48,8 +47,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.RefreshDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.RefreshDTO"
         description: refresh payload
         required: true
       responses:
@@ -90,8 +89,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.SignInDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.SignInDTO"
         description: credentials
         required: true
       responses:
@@ -132,8 +131,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.SignUpDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.SignUpDTO"
         description: user information
         required: true
       responses:
@@ -176,8 +175,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.CourseDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.CourseDTO"
                 type: array
         "500":
           description: Internal Server Error
@@ -273,8 +272,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.LessonDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.LessonDTO"
                 type: array
         "400":
           description: Bad Request
@@ -327,8 +326,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.UpdateLessonDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.UpdateLessonDTO"
         description: updated lesson info
         required: true
       responses:
@@ -337,8 +336,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                  http_v1_dto.LessonDTO"
+                $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                  apter_delivery_http_v1_dto.LessonDTO"
         "400":
           description: Bad Request
           content:
@@ -400,8 +399,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                  http_v1_dto.LessonStatDTO"
+                $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                  apter_delivery_http_v1_dto.LessonStatDTO"
         "400":
           description: Bad Request
           content:
@@ -460,8 +459,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.PassLessonDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.PassLessonDTO"
         description: passed lesson info
         required: true
       responses:
@@ -470,8 +469,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                  http_v1_dto.LessonStatDTO"
+                $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                  apter_delivery_http_v1_dto.LessonStatDTO"
         "400":
           description: Bad Request
           content:
@@ -590,8 +589,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.CourseDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.CourseDTO"
                 type: array
         "400":
           description: Bad Request
@@ -633,8 +632,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.CourseBriefDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.CourseBriefDTO"
                 type: array
         "400":
           description: Bad Request
@@ -678,8 +677,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.LessonDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.LessonDTO"
                 type: array
         "400":
           description: Bad Request
@@ -733,8 +732,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.CreateLessonDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.CreateLessonDTO"
         description: created lesson info
         required: true
       responses:
@@ -743,8 +742,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                  http_v1_dto.LessonDTO"
+                $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                  apter_delivery_http_v1_dto.LessonDTO"
         "400":
           description: Bad Request
           content:
@@ -801,8 +800,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.UserDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.UserDTO"
                 type: array
         "400":
           description: Bad Request
@@ -884,8 +883,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.SchoolDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.SchoolDTO"
                 type: array
         "500":
           description: Internal Server Error
@@ -903,8 +902,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.CreateSchoolDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.CreateSchoolDTO"
         description: created school info
         required: true
       responses:
@@ -913,8 +912,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                  http_v1_dto.SchoolDTO"
+                $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                  apter_delivery_http_v1_dto.SchoolDTO"
         "400":
           description: Bad Request
           content:
@@ -958,8 +957,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.SchoolDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.SchoolDTO"
                 type: array
         "400":
           description: Bad Request
@@ -997,8 +996,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.UpdateSchoolDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.UpdateSchoolDTO"
         description: updated school info
         required: true
       responses:
@@ -1007,8 +1006,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                  http_v1_dto.SchoolDTO"
+                $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                  apter_delivery_http_v1_dto.SchoolDTO"
         "400":
           description: Bad Request
           content:
@@ -1065,8 +1064,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.CourseDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.CourseDTO"
                 type: array
         "400":
           description: Bad Request
@@ -1104,8 +1103,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.CreateCourseDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.CreateCourseDTO"
         description: created course info
         required: true
       responses:
@@ -1115,8 +1114,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.CourseDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.CourseDTO"
                 type: array
         "400":
           description: Bad Request
@@ -1174,8 +1173,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.UserDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.UserDTO"
                 type: array
         "400":
           description: Bad Request
@@ -1337,8 +1336,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.UpdateCourseDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.UpdateCourseDTO"
         description: updated course info
         required: true
       responses:
@@ -1347,8 +1346,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                  http_v1_dto.CourseDTO"
+                $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                  apter_delivery_http_v1_dto.CourseDTO"
         "400":
           description: Bad Request
           content:
@@ -1460,8 +1459,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.UserDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.UserDTO"
                 type: array
         "500":
           description: Internal Server Error
@@ -1490,8 +1489,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.UserDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.UserDTO"
                 type: array
         "400":
           description: Bad Request
@@ -1526,8 +1525,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.UserInfoDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.UserInfoDTO"
                 type: array
         "401":
           description: Unauthorized
@@ -1554,8 +1553,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                http_v1_dto.UpdateUserDTO"
+              $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                apter_delivery_http_v1_dto.UpdateUserDTO"
         description: update user info
         required: true
       responses:
@@ -1565,8 +1564,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.UserDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.UserDTO"
                 type: array
         "400":
           description: Bad Request
@@ -1604,8 +1603,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.CourseDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.CourseDTO"
                 type: array
         "400":
           description: Bad Request
@@ -1686,8 +1685,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-                    http_v1_dto.SchoolDTO"
+                  $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+                    apter_delivery_http_v1_dto.SchoolDTO"
                 type: array
         "400":
           description: Bad Request
@@ -1724,7 +1723,7 @@ components:
       name: Authorization
       type: apiKey
   schemas:
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseBriefDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseBriefDTO:
       properties:
         description:
           example: Course description
@@ -1740,8 +1739,8 @@ components:
           type: string
         lessons:
           items:
-            $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-              http_v1_dto.LessonBriefDTO"
+            $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+              apter_delivery_http_v1_dto.LessonBriefDTO"
           type: array
         name:
           example: Course name
@@ -1750,7 +1749,7 @@ components:
           example: 3990
           type: integer
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CourseDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CourseDTO:
       properties:
         description:
           example: Course description
@@ -1780,7 +1779,7 @@ components:
           example: published
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateCourseDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateCourseDTO:
       properties:
         description:
           example: Course description
@@ -1807,9 +1806,9 @@ components:
         - name
         - price
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateLessonDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateLessonDTO:
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.CreateSchoolDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.CreateSchoolDTO:
       properties:
         description:
           example: School description
@@ -1820,7 +1819,7 @@ components:
         - description
         - name
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonBriefDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonBriefDTO:
       properties:
         id:
           type: string
@@ -1829,7 +1828,7 @@ components:
         type:
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonDTO:
       properties:
         course_id:
           type: string
@@ -1839,8 +1838,8 @@ components:
           type: integer
         tests:
           items:
-            $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-              http_v1_dto.TestDTO"
+            $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+              apter_delivery_http_v1_dto.TestDTO"
           type: array
         theory_url:
           type: string
@@ -1851,7 +1850,7 @@ components:
         video_url:
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.LessonStatDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.LessonStatDTO:
       properties:
         id:
           type: string
@@ -1861,21 +1860,21 @@ components:
           type: integer
         tests:
           items:
-            $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-              http_v1_dto.TestStatDTO"
+            $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+              apter_delivery_http_v1_dto.TestStatDTO"
           type: array
         user_id:
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.PassLessonDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.PassLessonDTO:
       properties:
         tests:
           items:
-            $ref: "#/components/schemas/github_com_paw1a_eschool_internal_adapter_delivery_\
-              http_v1_dto.PassTestDTO"
+            $ref: "#/components/schemas/github_com_Gradient-and-Co_sigma-school_internal_ad\
+              apter_delivery_http_v1_dto.PassTestDTO"
           type: array
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.PassTestDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.PassTestDTO:
       properties:
         answer:
           type: string
@@ -1885,7 +1884,7 @@ components:
         - answer
         - test_id
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.RefreshDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.RefreshDTO:
       properties:
         fingerprint:
           example: fingerprint
@@ -1893,7 +1892,7 @@ components:
       required:
         - fingerprint
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SchoolDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SchoolDTO:
       properties:
         description:
           example: School description
@@ -1908,7 +1907,7 @@ components:
           example: 30e18bc1-4354-4937-9a3b-03cf0b7027ca
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SignInDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SignInDTO:
       properties:
         email:
           example: paw1a@yandex.ru
@@ -1924,7 +1923,7 @@ components:
         - fingerprint
         - password
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.SignUpDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.SignUpDTO:
       properties:
         avatar_url:
           example: image.io/avatar.png
@@ -1953,7 +1952,7 @@ components:
         - password
         - surname
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.TestDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.TestDTO:
       properties:
         answer:
           type: string
@@ -1972,7 +1971,7 @@ components:
         task_url:
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.TestStatDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.TestStatDTO:
       properties:
         id:
           type: string
@@ -1983,7 +1982,7 @@ components:
         user_id:
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateCourseDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateCourseDTO:
       properties:
         description:
           example: Updated description
@@ -2004,15 +2003,15 @@ components:
           example: "3990"
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateLessonDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateLessonDTO:
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateSchoolDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateSchoolDTO:
       properties:
         description:
           example: Updated description
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UpdateUserDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UpdateUserDTO:
       properties:
         avatar_url:
           example: image.io/avatar.png
@@ -2030,7 +2029,7 @@ components:
           example: Shpakovskiy
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserDTO:
       properties:
         avatar_url:
           example: image.io/avatar.png
@@ -2054,7 +2053,7 @@ components:
           example: Shpakovskiy
           type: string
       type: object
-    github_com_paw1a_eschool_internal_adapter_delivery_http_v1_dto.UserInfoDTO:
+    github_com_Gradient-and-Co_sigma-school_internal_adapter_delivery_http_v1_dto.UserInfoDTO:
       properties:
         name:
           example: Pavel

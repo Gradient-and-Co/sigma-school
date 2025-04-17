@@ -1,0 +1,117 @@
+name: Build and Push
+
+on:
+  push:
+    branches: [main, dev]
+
+env:
+  BACKEND_IMAGE: sigma-school
+  FRONTEND_IMAGE: sigma-school-frontend
+  TAG: latest
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Build
+        run: go test -shuffle on github.com/Gradient-and-Co/sigma-school/internal/core/service/test/unit github.com/Gradient-and-Co/sigma-school/internal/core/service/test/integration github.com/Gradient-and-Co/sigma-school/internal/adapter/repository/postgres/test --parallel 8
+
+  build-and-push:
+    name: Build and Push
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+        with:
+          platforms: linux/arm64
+
+      - name: Push to Docker Hub Sigma school image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./deploy/Dockerfile-backend
+          push: true
+          platforms: linux/arm64
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.BACKEND_IMAGE }}:${{ env.TAG }}
+
+#      - name: Push to Docker Hub React Frontend image
+#        uses: docker/build-push-action@v2
+#        with:
+#          context: ./frontend
+#          file: ./deploy/Dockerfile-frontend
+#          push: true
+#          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.FRONTEND_IMAGE }}:${{ env.TAG }}
+
+  deploy:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy files
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          source: "migrations/,deploy/,!deploy/Dockerfile-backend"
+          target: "app"
+          strip_components: 1
+
+      - name: Deploy ssh
+        uses: appleboy/ssh-action@v0.1.3
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            export JWT_SECRET="${{ secrets.JWT_SECRET }}"
+
+            export HOST="${{ secrets.HOST }}"
+            export PORT="${{ secrets.PORT }}"
+
+            export DB_NAME=sigma-school
+            export DB_HOST=postgres
+            export DB_PORT=5432
+            export DB_USER=user
+            export DB_PASSWORD=password
+            
+            export REDIS_URI=redis:6379
+            
+            export MINIO_ENDPOINT=minio:9000
+            export MINIO_BUCKET_NAME=eschool
+            export MINIO_ROOT_USER=root
+            export MINIO_ROOT_PASSWORD=password
+            
+            export PAYMENT_WALLET=4100118618256243
+
+            export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_HUB_USERNAME }}"
+            export BACKEND_IMAGE="${{ env.BACKEND_IMAGE }}"
+            export TAG="${{ env.TAG }}"
+
+            cd app
+            docker compose -f docker-compose.yml down
+            docker compose -f docker-compose.yml pull
+            docker compose -f docker-compose.yml up -d postgres redis minio migrate app
+            docker image prune -f --filter="dangling=true"

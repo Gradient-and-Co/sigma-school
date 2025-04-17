@@ -1,7 +1,18 @@
 include .env
 export
 
+build: swagger
+	go mod download && CGO_ENABLED=0 GOOS=linux go build -gcflags="all=-N -l" -o ./.bin/app ./cmd/web/main.go
+
+run: build
+	docker-compose up postgres redis minio proxy app
+
+debug: build
+	docker-compose up postgres redis minio debug
+
 migrate:
+	# if "error: file does not exist" was occurred,
+    # it means that data is up to date
 	docker compose up migrate
 
 mocks:
@@ -32,14 +43,10 @@ test:
 	go test -shuffle on \
 		./internal/core/service/test/unit \
 		./internal/core/service/test/integration \
-		./internal/adapter/repository/postgres/test \
-		--parallel 8 -v
+		./internal/adapter/repository/postgres/test --parallel 8
 
-allure:
-	rm -rf allure-reports
-	allure generate allure-results -o allure-reports
-	allure serve allure-results -p 4000
+swagger:
+	swag init --parseDependency --parseInternal --parseDepth 1 -g ./cmd/web/main.go
+	swagger2openapi docs/swagger.yaml -o docs/openapi3.yaml
 
-report: test allure
-
-.DEFAULT_GOAL := test
+.DEFAULT_GOAL := run

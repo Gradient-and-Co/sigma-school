@@ -68,23 +68,30 @@ services:
     ports:
       - "9000:9000"
       - "9001:9001"
-    env_file:
-      - .env
+    environment:
+      - MINIO_ROOT_USER
+      - MINIO_ROOT_PASSWORD
     networks:
       - backend
 
   app:
-    image: 'app'
+    image: hostrey/sigma-school
     container_name: 'app'
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - ./.bin/:/app/
-      - ./config/:/app/config/
-      - ./logs/:/app/logs
-    env_file:
-      - .env
+    environment:
+      - HOST
+      - PORT
+      - JWT_SECRET
+      - DB_NAME
+      - DB_HOST
+      - DB_PORT
+      - DB_USER
+      - DB_PASSWORD
+      - REDIS_URI
+      - MINIO_ENDPOINT
+      - MINIO_BUCKET_NAME
+      - MINIO_ROOT_USER
+      - MINIO_ROOT_PASSWORD
+      - PAYMENT_WALLET
     depends_on:
       postgres:
         condition: service_healthy
@@ -94,50 +101,6 @@ services:
         condition: service_started
     ports:
       - "8080:8080"
-    networks:
-      - backend
-
-  proxy:
-    image: nginx
-    container_name: 'proxy'
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/static/dist:/static/dist
-      - ./docs:/static/docs
-      - ./README.md:/static/README.md
-      - ./nginx/static/index.html:/static/index.html
-      - ./nginx/static/md-renderer.html:/static/md-renderer.html
-      - ./logs/nginx:/var/log/nginx
-    networks:
-      - backend
-    depends_on:
-      - app
-
-  debug:
-    image: 'debug'
-    container_name: 'debug'
-    build:
-      context: .
-      dockerfile: Dockerfile.debug
-    volumes:
-      - ./.bin/:/app/
-      - ./config/:/app/config/
-    env_file:
-      - .env
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_started
-    ports:
-      - "8080:8080"
-      - "40000:40000"
-    security_opt:
-      - apparmor:unconfined
-    cap_add:
-      - SYS_PTRACE
     networks:
       - backend
 

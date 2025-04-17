@@ -1,7 +1,12 @@
 package config
 
 import (
+	"github.com/Gradient-and-Co/sigma-school/internal/adapter/auth/jwt"
 	v1 "github.com/Gradient-and-Co/sigma-school/internal/adapter/delivery/http/v1"
+	"github.com/Gradient-and-Co/sigma-school/internal/adapter/payment/yoomoney"
+	storage "github.com/Gradient-and-Co/sigma-school/internal/adapter/storage/minio"
+	"github.com/Gradient-and-Co/sigma-school/pkg/database/postgres"
+	"github.com/Gradient-and-Co/sigma-school/pkg/database/redis"
 	"github.com/Gradient-and-Co/sigma-school/pkg/logging"
 	"github.com/spf13/viper"
 	"log"
@@ -9,8 +14,13 @@ import (
 )
 
 type Config struct {
-	Logging logging.Config
-	Web     v1.Config
+	Logging  logging.Config
+	Web      v1.Config
+	Postgres postgres.Config
+	JWT      jwt.Config
+	Redis    redis.Config
+	Minio    storage.Config
+	Yoomoney yoomoney.Config
 }
 
 var instance *Config
@@ -44,6 +54,21 @@ func bindEnvConfig() error {
 	bindings := make(map[string]string)
 	bindings["web.host"] = "HOST"
 	bindings["web.port"] = "PORT"
+	bindings["jwt.secret"] = "JWT_SECRET"
+	bindings["postgres.database"] = "DB_NAME"
+	bindings["postgres.user"] = "DB_USER"
+	bindings["postgres.password"] = "DB_PASSWORD"
+	bindings["postgres.host"] = "DB_HOST"
+	bindings["postgres.port"] = "DB_PORT"
+	bindings["redis.uri"] = "REDIS_URI"
+	bindings["minio.endpoint"] = "MINIO_ENDPOINT"
+	bindings["minio.user"] = "MINIO_ROOT_USER"
+	bindings["minio.password"] = "MINIO_ROOT_PASSWORD"
+	bindings["minio.bucketName"] = "MINIO_BUCKET_NAME"
+	bindings["yoomoney.scheme"] = "PAYMENT_SCHEME"
+	bindings["yoomoney.host"] = "PAYMENT_HOST"
+	bindings["yoomoney.path"] = "PAYMENT_PATH"
+	bindings["yoomoney.wallet"] = "PAYMENT_WALLET"
 
 	for name, binding := range bindings {
 		if err := viper.BindEnv(name, binding); err != nil {
