@@ -1,57 +1,124 @@
 package port
 
-import (
-	"github.com/guregu/null"
-)
+import "github.com/guregu/null"
 
+// CreateTheoryParam содержит параметры для создания теоретического урока.
 type CreateTheoryParam struct {
-	Title  string
-	Score  int
+	// Title — название теоретического урока.
+	Title string
+
+	// Score — количество баллов, присваиваемых за выполнение урока.
+	Score int
+
+	// Theory — содержание теоретического материала урока.
 	Theory string
 }
 
+// CreateVideoParam содержит параметры для создания видеоурока.
 type CreateVideoParam struct {
-	Title    string
-	Score    int
+	// Title — название видеоурока.
+	Title string
+
+	// Score — количество баллов, присваиваемых за выполнение видеоурока.
+	Score int
+
+	// VideoUrl — URL ссылки на видеоурок.
 	VideoUrl string
 }
 
+// CreatePracticeParam содержит параметры для создания практического урока.
 type CreatePracticeParam struct {
+	// Title — название практического урока.
 	Title string
+
+	// Score — количество баллов, присваиваемых за выполнение практического урока.
 	Score int
+
+	// Tests — список тестов, ассоциированных с практическим уроком.
 	Tests []CreateTestParam
 }
 
+// CreateTestParam описывает параметры для создания теста.
 type CreateTestParam struct {
-	Task    string
+	// Task — описание задания теста.
+	Task string
+
+	// Options — список вариантов ответа на тест.
 	Options []string
-	Answer  string
-	Level   int
-	Score   int
+
+	// Answer — правильный ответ на тест.
+	Answer string
+
+	// Level — уровень сложности теста.
+	Level int
+
+	// Score — количество баллов, присваиваемых за выполнение теста.
+	Score int
 }
 
+// UpdateTheoryParam содержит параметры для обновления теоретического урока.
+// Поля могут быть пустыми (null), если они не требуют обновления.
 type UpdateTheoryParam struct {
-	Title  null.String
-	Score  null.Int
+	// Title — новое название теоретического урока, если требуется обновление.
+	// Может быть пустым (null), если название не изменяется.
+	Title null.String
+
+	// Score — новый балл за выполнение урока, если требуется обновление.
+	// Может быть пустым (null), если балл не изменяется.
+	Score null.Int
+
+	// Theory — новое содержание теоретического материала, если требуется обновление.
+	// Может быть пустым (null), если содержание не изменяется.
 	Theory null.String
 }
 
+// UpdateVideoParam содержит параметры для обновления видеоурока.
+// Поля могут быть пустыми (null), если они не требуют обновления.
 type UpdateVideoParam struct {
-	Title    null.String
-	Score    null.Int
+	// Title — новое название видеоурока, если требуется обновление.
+	// Может быть пустым (null), если название не изменяется.
+	Title null.String
+
+	// Score — новый балл за выполнение видеоурока, если требуется обновление.
+	// Может быть пустым (null), если балл не изменяется.
+	Score null.Int
+
+	// VideoUrl — новый URL ссылки на видеоурок, если требуется обновление.
+	// Может быть пустым (null), если URL не изменяется.
 	VideoUrl null.String
 }
 
+// UpdatePracticeParam содержит параметры для обновления практического урока.
+// Поля могут быть пустыми (null), если они не требуют обновления.
 type UpdatePracticeParam struct {
+	// Title — новое название практического урока, если требуется обновление.
+	// Может быть пустым (null), если название не изменяется.
 	Title null.String
+
+	// Score — новый балл за выполнение практического урока, если требуется обновление.
+	// Может быть пустым (null), если балл не изменяется.
 	Score null.Int
+
+	// Tests — список новых тестов, если они требуются для обновления.
+	// Может быть пустым (null), если тесты не изменяются.
 	Tests []UpdateTestParam
 }
 
+// UpdateTestParam описывает параметры для обновления теста.
 type UpdateTestParam struct {
-	Task    string
+	// Task — описание задания теста, если требуется обновление.
+	Task string
+
+	// Options — список новых вариантов ответа на тест, если требуется обновление.
 	Options []string
-	Answer  string
-	Level   int
-	Score   int
+
+	// Answer — новый правильный ответ на тест, если требуется обновление.
+	Answer string
+
+	// Level — новый уровень сложности теста, если требуется обновление.
+	Level int
+
+	// Score — новый балл за выполнение теста, если требуется обновление.
+	Score int
 }
+
